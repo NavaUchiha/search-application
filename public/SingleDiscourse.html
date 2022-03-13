@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+  <script>
+    var loadDocument = function () {
+      console.log("inside onload function");
+      var discourseArrayJson = JSON.parse(
+        localStorage.getItem("localStorageDiscoursesArray")
+      );
+
+      console.log(discourseArrayJson);
+      var hashKey = location.hash.substring(1);
+      var discourseObj = discourseArrayJson.find(
+        (element) => element.discourseId === hashKey
+      );
+      console.log(discourseObj);
+      document.getElementById("myText").innerHTML = discourseObj.title;
+      // if(discourseArrayJson){
+      //     console.log(discourseArrayJson)
+      //     var discourseArray=JSON.parse(discourseArrayJson)
+      //     console.log(`length of the discourse Array ${discourseArray.length}`)
+
+      //     var hashKey=location.hash.substring(1)
+      //     console.log(`hash key we are looking for ${hashKey}`)
+      //     var discourse = discourseArray.find(element => element.uuid === hashKey)
+      //     console.log(discourse)
+      //     document.getElementById("myText").innerHTML = discourse.textDC ? discourse.textDC : discourse.textdc
+      // }
+      // else console.log('discourse Array is not valid  : '+discourseArrayJson);
+    };
+  </script>
+</head>
+
+<body onload="loadDocument()">
+  <div id="myText"></div>
+</body>

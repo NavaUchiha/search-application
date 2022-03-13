@@ -1,0 +1,21 @@
+/* .InputBar {
+  position: 'fixed';
+  margin: 40rem;
+  padding: 40rem;
+} */
+
+.job-search {
+  position: -webkit-sticky;
+  position: sticky; /* The magic */
+  z-index: 100; /* Ensure it stays on top of other player divs */
+  top: 10px; /* Where it should stick to */
+
+  box-sizing: border-box;
+}
+
+.parentStack {
+  /* position: -webkit-sticky;
+  position: sticky;
+  top: -3em; */
+  /* transform: translateX(0); */
+}

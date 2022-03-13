@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css'
+import SearchLayout from './components/SearchLayout'
+import OverallLayout from './components/OverallLayout'
+import { TestingSplice } from './components/TestingSplice'
+import { deepOrange, deepPurple, grey } from '@mui/material/colors'
+import { Box } from '@mui/material'
+import { UserContextProvider } from './data/UserContext'
+import HeroPage from './components/HeroPage'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Switch,
+  IndexRoute,
+  Link,
+} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // // <UserContextProvider>
+    //   {/* <HeroPage /> */}
+    //   {/* </UserContextProvider> */}
+    <OverallLayout />
+  )
 }
 
-export default App;
+export default App

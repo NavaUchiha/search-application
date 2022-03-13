@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './css/index.css'
+import App from './App'
+import HeroPage from './components/HeroPage'
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
+import BookmarkPage from './components/BookmarkPage'
+import Theme from './components/Theme'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { UserContextProvider } from './data/UserContext'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <React.Fragment>
+    <ThemeProvider theme={Theme}></ThemeProvider>
+    <CssBaseline />
+    <UserContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HeroPage />}></Route>
+          <Route path="/bookmark" element={<BookmarkPage />}></Route>
+          <Route path="/search" element={<App />}></Route>
+          <Route
+            exact
+            path="/terminos"
+            render={() => {
+              window.location.href = 'terminos.html'
+            }}
+          />
+        </Routes>
+      </BrowserRouter>
+    </UserContextProvider>
+    <ThemeProvider />
+  </React.Fragment>,
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  document.getElementById('root'),
+)
